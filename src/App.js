@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AccountForm from './components/add-account/AccountForm';
 import AccountDisplay from './components/get-accounts/AccountDisplay';
 import PostForm from './components/post-form/PostForm'
-import UpdateAccount from './components/update-account/UpdateAccountForm';
+import UpdateAccountForm from './components/update-account/UpdateAccountForm';
 import Navigation from './Nav';
 
 export const App = () => {
@@ -18,7 +18,7 @@ export const App = () => {
                     <Route path="/display-accounts" component={AccountDisplay} exact/>
                     <Route 
                     path="/update-accounts/:id/edit"
-                    component={UpdateAccount}
+                    component={UpdateAccountForm}
                     />
                 </Switch>
                 </div> 

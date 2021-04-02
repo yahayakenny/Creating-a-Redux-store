@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import UpdateAccountAction from './UpdateAccountAction';
-
-
+import {useParams} from "react-router-dom";
 
 const account = {
     bank_name: '',
@@ -10,7 +9,7 @@ const account = {
 }
 
 const UpdateAccountForm = () => {
-
+let {id} = useParams()
 const [values, setValues] = useState(account)
 
 const handleChange = (e) => {
@@ -22,8 +21,8 @@ const handleChange = (e) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values)
-    UpdateAccountAction(values)
+    console.log(values, id)
+    UpdateAccountAction(values, id)
 }
 
 return (
@@ -41,6 +40,9 @@ return (
             <label>Account Number
                 <input type = 'number' onChange = {handleChange} value = {values.account_number} name = 'account_number'/>
             </label> 
+
+            <div>{id}</div>
+
             <button>Submit</button>
         </form>
     </div>

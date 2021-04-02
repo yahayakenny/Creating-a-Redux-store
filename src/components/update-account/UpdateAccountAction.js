@@ -1,14 +1,14 @@
 import store from '../Store';
 import axios from 'axios';
 
-
-
-const UpdateAccountAction = (values) => {
+const UpdateAccountAction = (values, id) => {
     const getToken = store.getState().post.token
+    console.log(id)
+    console.log(values)
 
     axios({
         method: 'PUT',
-        url: 'http://localhost:1337/accounts/5',
+        url: `http://localhost:1337/accounts/${id}`,
         data: values,
         headers: {
             'content-type': 'application/json',
