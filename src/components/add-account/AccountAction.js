@@ -4,7 +4,6 @@ import store from '../Store'
 
 const AccountAction = (values) => {
     //To get the token from the redux store
-    console.log(store.getState())
     const getToken = store.getState().post.token
 
     axios({

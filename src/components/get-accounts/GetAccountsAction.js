@@ -12,7 +12,6 @@ const GetAccountsAction = () => {
         }
     }
     ).then((res) => {
-        console.log(res.data)
         store.dispatch({ 
             type: 'GET_ACCOUNTS',
             data: res.data

@@ -2,6 +2,7 @@ import React from 'react';
 import {useSelector} from 'react-redux'
 import GetAccountsAction from './GetAccountsAction'
 import { useHistory } from 'react-router-dom';
+import PopulateAction from '../update-account/PopulateAction';
 
 const AccountDisplay = () => {
   let history = useHistory();
@@ -13,6 +14,8 @@ const AccountDisplay = () => {
 
   const handleEdit = (account) => {
     history.push(`/update-accounts/${account.id}/edit`);
+    PopulateAction(account.id)
+    console.log(account.id)
   }
   
   return (

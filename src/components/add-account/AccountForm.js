@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import AccountAction from './AccountAction';
 
 const account = {
-    bank_name: '',
     account_name: '',
     account_number: '',
 }
@@ -28,10 +27,7 @@ const AccountForm = () => {
         <div>
             <form onSubmit = {handleSubmit}>
                 <div>Add account</div>
-                <label>Bank Name:
-                    <input type = 'text' onChange = {handleChange} value = {values.bank_name} name = 'bank_name'/>
-                </label>
-            
+             
                 <label>Account Name
                     <input type = 'text' onChange = {handleChange} value = {values.account_name} name = 'account_name'/>
                 </label>
