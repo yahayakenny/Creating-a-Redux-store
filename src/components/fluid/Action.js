@@ -1,4 +1,4 @@
-import store from './Store';
+import store from '../Store';
 
 const myAction = (weight, dehydration) => {
    store.dispatch({

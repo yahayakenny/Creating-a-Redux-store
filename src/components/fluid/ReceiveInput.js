@@ -1,14 +1,12 @@
 import React, {useState} from 'react';
-import store from './Store'
-import {useDispatch} from 'react-redux';
 import myAction from './Action'
 import Calculations from './Calculations';
 
-let ReceiveInput = (props) => {
+
+let ReceiveInput = () => {
     const [bodyWeight, setbodyWeight] = useState('')
     const [dehydration, setDehydration] = useState('')
 
-    const dispatch = useDispatch();
 
     const handleWeight = (e) => {
        setbodyWeight(parseInt(e.target.value))
@@ -38,7 +36,7 @@ let ReceiveInput = (props) => {
                 </select>
                 <input type = 'submit' value = 'Submit'/>
             </form> 
-            <Calculations/>
+            <Calculations/> 
         </div>
     )
 }

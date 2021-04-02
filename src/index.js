@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReceiveInput from './components/ReceiveInput';
 import {Provider} from 'react-redux';
 import store from './components/Store'
-
+import App from './App'
 
 ReactDOM.render(
   <Provider store = {store}>
-    <ReceiveInput/>
+    <App/>
   </Provider>,
   document.getElementById('root')
 );
