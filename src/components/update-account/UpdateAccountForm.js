@@ -8,7 +8,7 @@ const UpdateAccountForm = () => {
     let {id} = useParams();
     let dispatch = useDispatch()
     
-    const getToken = useSelector(state => state.post.token);
+    const getToken = useSelector(state => state.auth.token);
     const populateAccounts = useSelector(state => state.populateAccounts);
 
     let account = {

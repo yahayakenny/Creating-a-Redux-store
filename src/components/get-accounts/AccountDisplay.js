@@ -9,10 +9,11 @@ const AccountDisplay = () => {
   const dispatch = useDispatch();
   let history = useHistory();
 
-  const getToken = useSelector(state => state.post.token)
+  const getToken = useSelector(state => state.auth.token)
   const accounts = useSelector(state => state.getAccounts)
  
   const handleClick = () => {
+    console.log(getToken)
     dispatch(GetAccountsAction(getToken))
     
   }

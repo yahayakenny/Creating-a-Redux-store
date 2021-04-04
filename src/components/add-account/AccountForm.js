@@ -10,7 +10,7 @@ const account = {
 
 const AccountForm = () => {
     const [values, setValues] = useState(account)
-    const getToken = useSelector(state => state.post.token)
+    const getToken = useSelector(state => state.auth.token)
     const dispatch = useDispatch()
    
     const handleChange = (e) => {

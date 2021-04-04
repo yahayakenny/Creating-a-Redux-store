@@ -4,7 +4,7 @@ import {createStore} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 // import {myReducer} from './fluid/Reducer';
 import {combineReducers, applyMiddleware} from 'redux';
-import postReducer from './post-form/PostReducer';
+import AuthReducer from './auth-form/AuthReducer';
 import AccountReducer from './add-account/AccountReducer';
 import GetAccountReducer from './get-accounts/GetAcountReducer';
 import UpdateAccountReducer from './update-account/UpdateAccountReducer';
@@ -16,7 +16,7 @@ import ReduxThunk from 'redux-thunk';
 const composeEnhancers = composeWithDevTools({});
 const rootReducer = combineReducers({
   // fluid: myReducer,
-  post: postReducer,
+  auth: AuthReducer,
   account: AccountReducer,
   getAccounts : GetAccountReducer,
   updateAccounts: UpdateAccountReducer,

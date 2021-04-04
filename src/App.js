@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AccountForm from './components/add-account/AccountForm';
 import AccountDisplay from './components/get-accounts/AccountDisplay';
-import PostForm from './components/post-form/PostForm'
+import PostForm from './components/auth-form/AuthForm'
 import UpdateAccountForm from './components/update-account/UpdateAccountForm';
 import Navigation from './Nav';
 

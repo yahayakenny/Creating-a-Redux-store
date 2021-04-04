@@ -1,4 +1,4 @@
-const postReducer = (state = {email: 'kenny@gmail.com', password: 'kenny'}, action) => {
+const AuthReducer = (state = {email: 'kenny@gmail.com', password: 'kenny'}, action) => {
     switch (action.type){
         case 'VALIDATE_DETAILS': 
             return action.data
@@ -8,4 +8,4 @@ const postReducer = (state = {email: 'kenny@gmail.com', password: 'kenny'}, acti
     }
 }
 
-export default postReducer;
+export default AuthReducer;

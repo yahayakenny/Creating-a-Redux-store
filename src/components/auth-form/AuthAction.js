@@ -1,9 +1,9 @@
-import store from '../Store';
 import axios from 'axios';
+import store from '../Store'
 
 //The Action creator mainly retrieves the data usually from an API or from a form, Next it dispatches the data and passes it to the reducer to save to the store
 
-const postAction = (email, password) => {
+const AuthAction = (email, password) => {
     axios({
         method: 'POST',
         url: 'http://localhost:1337/auth/local',
@@ -30,4 +30,4 @@ const postAction = (email, password) => {
 
  }
  
- export default postAction;
+ export default AuthAction;

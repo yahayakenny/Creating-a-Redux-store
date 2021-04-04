@@ -1,7 +1,7 @@
 import React, {useState}from 'react';
-import postAction from './PostAction';
+import AuthAction from './AuthAction';
 
-export const PostForm = () => {
+export const AuthForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -15,14 +15,15 @@ export const PostForm = () => {
  
      const handleSubmit = (e) => {
         e.preventDefault()
+        console.log(email, password)
         
         // In order to retrieve the data gotten from this component or any other component, you pass it to the action creator
-        postAction(email, password)
+        AuthAction(email, password)
      }
 
     return (
         <form onSubmit = {handleSubmit}>
-            <div>Post form to API</div>
+            <div>Authenticate form to API</div>
             <label>Email:
                 <input type = 'email' onChange = {handleEmail} value = {email}/>
             </label>
@@ -35,4 +36,4 @@ export const PostForm = () => {
     )
 }
 
-export default PostForm;
+export default AuthForm;
