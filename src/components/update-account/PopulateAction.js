@@ -1,28 +1,25 @@
-import store from '../Store';
 import axios from 'axios';
 
-const PopulateAction = (id) => {
-    const getToken = store.getState().post.token
+const PopulateAction = (id, getToken) => {
+    return async(dispatch) => {
+        const response = await axios({
+            method: 'GET',
+            url: `http://localhost:1337/accounts/${id}`,
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': `Bearer ${getToken}`
+            }
+        })
 
-    axios({
-        method: 'GET',
-        url: `http://localhost:1337/accounts/${id}`,
-        headers: {
-            'content-type': 'application/json',
-            'Authorization': `Bearer ${getToken}`
-        }
-    })
-    .then((res) => {
-        console.log(res)
-        store.dispatch({ 
+        const resData = await response.data;
+        console.log('resData:', resData)
+
+        dispatch({ 
             type: 'POPULATE_ACCOUNTS',
-            data: res.data
-        })     
-     } )
-    .catch((err) => console.log(err.response))
-
-   
-     
+            data: resData
+        })  
+    }
+    
 }
 
 export default PopulateAction;

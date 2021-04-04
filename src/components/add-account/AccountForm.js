@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import AccountAction from './AccountAction';
+import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 
 const account = {
     account_name: '',
@@ -8,6 +10,8 @@ const account = {
 
 const AccountForm = () => {
     const [values, setValues] = useState(account)
+    const getToken = useSelector(state => state.post.token)
+    const dispatch = useDispatch()
    
     const handleChange = (e) => {
         setValues({
@@ -16,11 +20,10 @@ const AccountForm = () => {
         });
     }
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(values)
-        AccountAction(values)
+        dispatch(AccountAction(values, getToken))
     }
 
     return (
@@ -37,10 +40,6 @@ const AccountForm = () => {
                 </label> 
                 <button>Submit</button>
             </form>
-
-            {/* <div>
-                <AccountDisplay/>
-            </div> */}
         </div>
     )
 }

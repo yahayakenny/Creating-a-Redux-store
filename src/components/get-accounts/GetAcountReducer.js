@@ -1,5 +1,3 @@
-
-
 const GetAccountReducer = (state = [], action) => {
     switch(action.type){
         case 'GET_ACCOUNTS':

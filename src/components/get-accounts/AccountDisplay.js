@@ -1,21 +1,25 @@
-import React from 'react';
-import {useSelector} from 'react-redux'
+import React, {useEffect} from 'react';
+import {useSelector, } from 'react-redux'
 import GetAccountsAction from './GetAccountsAction'
 import { useHistory } from 'react-router-dom';
 import PopulateAction from '../update-account/PopulateAction';
+import {useDispatch} from 'react-redux';
 
 const AccountDisplay = () => {
+  const dispatch = useDispatch();
   let history = useHistory();
+
+  const getToken = useSelector(state => state.post.token)
   const accounts = useSelector(state => state.getAccounts)
  
   const handleClick = () => {
-    GetAccountsAction()
+    dispatch(GetAccountsAction(getToken))
+    
   }
 
-  const handleEdit = (account) => {
+  const handleUpdate = (account) => {
     history.push(`/update-accounts/${account.id}/edit`);
-    PopulateAction(account.id)
-    console.log(account.id)
+    dispatch(PopulateAction(account.id, getToken))
   }
   
   return (
@@ -24,7 +28,7 @@ const AccountDisplay = () => {
         <button onClick = {handleClick}>Get accounts</button>
         <div>
         {accounts.map(account=>
-          <div>ID: {account.id}, {account.account_name} <button onClick = {() => handleEdit(account)}>Update</button></div>
+          <div key = {account.id}> ID: {account.id}, {account.account_name} <button onClick = {() => handleUpdate(account)}>Update</button></div>
           )}
         </div> 
       </div>

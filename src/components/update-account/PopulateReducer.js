@@ -1,5 +1,4 @@
 const initialState = {
-    bank_name : '',
     account_name: '',
     account_number: '',
 }
