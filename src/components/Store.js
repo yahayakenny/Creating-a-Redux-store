@@ -12,6 +12,7 @@ import PopulateAccountReducer from './update-account/PopulateReducer';
 
 //install redux thunk with npm i redux-thunk, then also import applymiddleware from redux
 import ReduxThunk from 'redux-thunk';
+import DeleteAccountReducer from './delete-account/DeleteAccountReducer';
 
 const composeEnhancers = composeWithDevTools({});
 const rootReducer = combineReducers({
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   getAccounts : GetAccountReducer,
   updateAccounts: UpdateAccountReducer,
   populateAccounts: PopulateAccountReducer,
+  deleteAccounts: DeleteAccountReducer,
 });
 
 const store = createStore(

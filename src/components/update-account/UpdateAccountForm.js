@@ -3,7 +3,6 @@ import UpdateAccountAction from './UpdateAccountAction';
 import {useParams} from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux'
 
-
 const UpdateAccountForm = () => {
     let {id} = useParams();
     let dispatch = useDispatch()

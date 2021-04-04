@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-const UpdateAccountAction = (values, id, getToken) => {
+const DeleteAccountAction = (id, getToken) => {
     return async (dispatch) => {
         const response = await axios({
-            method: 'PUT',
+            method: 'DELETE',
             url: `http://localhost:1337/accounts/${id}`,
-            data: values,
             headers: {
                 'content-type': 'application/json',
                 'Authorization': `Bearer ${getToken}`
@@ -15,13 +14,14 @@ const UpdateAccountAction = (values, id, getToken) => {
         const resData = await response.data
 
         dispatch({ 
-            type: 'UPDATE_ACCOUNT',
+            type: 'DELETE_ACCOUNT',
             data: resData
         }) 
+
+        
     }
   
      
 }
 
-export default UpdateAccountAction;
-
+export default DeleteAccountAction;

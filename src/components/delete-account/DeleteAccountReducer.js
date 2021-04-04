@@ -3,13 +3,13 @@ const initialState = {
     account_number: '',
 }
 
-const UpdateAccountReducer = (state=initialState, action) => {
+const DeleteAccountReducer = (state=initialState, action) => {
     switch (action.type){
-        case 'UPDATE_ACCOUNT':
+        case 'DELETE_ACCOUNT':
             return action.data
         default:
             return state
     }
 }
 
-export default UpdateAccountReducer;
+export default DeleteAccountReducer;

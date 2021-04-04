@@ -4,6 +4,7 @@ import GetAccountsAction from './GetAccountsAction'
 import { useHistory } from 'react-router-dom';
 import PopulateAction from '../update-account/PopulateAction';
 import {useDispatch} from 'react-redux';
+import DeleteAccountAction from '../delete-account/DeleteAccountAction';
 
 const AccountDisplay = () => {
   const dispatch = useDispatch();
@@ -13,14 +14,18 @@ const AccountDisplay = () => {
   const accounts = useSelector(state => state.getAccounts)
  
   const handleClick = () => {
-    console.log(getToken)
     dispatch(GetAccountsAction(getToken))
-    
   }
 
   const handleUpdate = (account) => {
     history.push(`/update-accounts/${account.id}/edit`);
     dispatch(PopulateAction(account.id, getToken))
+  
+  }
+
+  const handleDelete = (account) => {
+    dispatch(DeleteAccountAction(account.id, getToken))
+    history.push('/display-accounts');
   }
   
   return (
@@ -29,7 +34,7 @@ const AccountDisplay = () => {
         <button onClick = {handleClick}>Get accounts</button>
         <div>
         {accounts.map(account=>
-          <div key = {account.id}> ID: {account.id}, {account.account_name} <button onClick = {() => handleUpdate(account)}>Update</button></div>
+          <div key = {account.id}> ID: {account.id}, {account.account_name} <button onClick = {() => handleUpdate(account)}>Update</button>  <button onClick = {() => handleDelete(account)}>Delete</button></div>
           )}
         </div> 
       </div>
